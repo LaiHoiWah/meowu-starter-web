@@ -1,7 +1,6 @@
 package com.meowu.starter.web.config;
 
-import com.meowu.commons.utils.GsonUtils;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import com.meowu.starter.commons.utils.GsonUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +19,7 @@ public class HttpMessageConverterConfig{
         // gson convert
         GsonHttpMessageConverter converter = new GsonHttpMessageConverter();
         converter.setDefaultCharset(StandardCharsets.UTF_8);
-        converter.setGson(GsonUtils.getGson());
+        converter.setGson(GsonUtils.DEFAULT);
 
         return new HttpMessageConverters(converter);
     }
